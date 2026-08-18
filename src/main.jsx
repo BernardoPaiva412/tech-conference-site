@@ -7,13 +7,16 @@ import Contact from './pages/Contact.jsx'
 import Register from './pages/Register.jsx'
 import Login from './pages/Login.jsx'
 import NotFound from './pages/NotFound.jsx';
+import SiteLayout from './layouts/SiteLayout.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/contato' element={<Contact />} />
+        <Route path='/' element={<SiteLayout />}>
+          <Route index element={<Home />} />
+          <Route path='/contato' element={<Contact />} />
+        </Route>
         <Route path='/cadastro' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='*' element={<NotFound />} />
